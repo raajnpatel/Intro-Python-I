@@ -31,7 +31,7 @@ f.write('testing this line3\n')
 # text2 = f.read()
 
 f.close()
-f=open('bar.txt')
+f = open('bar.txt')
 text2 = f.read()
 f.close()
 print(text2)
