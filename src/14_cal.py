@@ -9,8 +9,11 @@ and does the following:
  - If the user doesn't specify any input, your program should
    print the calendar for the current month. The 'datetime'
    module may be helpful for this.
+
+
  - If the user specifies one argument, assume they passed in a
    month and render the calendar for that month of the current year.
+
  - If the user specifies two arguments, assume they passed in
    both the month and the year. Render the calendar for that
    month and year.
@@ -22,3 +25,19 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+userInput = sys.argv[1:]
+
+today = datetime.today()
+
+# If user input nothing, we display the current month/year
+if userInput == []:
+    calendar.prmonth(today.year, today.month)
+else:
+    # If user input only 1 number, we assume it's the month and display that
+    if len(userInput) == 1:
+        calendar.prmonth(today.year, int(userInput[0]))
+        # We assume that if the previous cases did not render, user has input 2 numbers. Those will be the month and
+        # year
+    else:
+        calendar.prmonth(int(userInput[1]), int(userInput[0]))
